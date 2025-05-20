@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Order Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            background-image: url(background1.jpg);
+        }
+        .form-container {
+            background: white;
+            padding: 20px 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Grocify Store</h2>
+        <form id="groceryForm">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
+
+            <label for="number">Phone Number</label>
+            <input type="tel" id="number" required>
+
+            <label for="date">Date</label>
+            <input type="date" id="date" required>
+
+            <label for="apples">Apples (qty)</label>
+            <input type="number" id="apples" min="0" value="0">
+
+            <label for="bananas">Bananas (qty)</label>
+            <input type="number" id="bananas" min="0" value="0">
+
+            <label for="bread">Bread (qty)</label>
+            <input type="number" id="bread" min="0" value="0">
+
+            <label for="grapes">Grapes (qty)</label>
+            <input type="number" id="grapes" min="0" value="0">
+
+            <label for="oranges">Oranges (qty)</label>
+            <input type="number" id="oranges" min="0" value="0">
+
+            <label for="melon">Melon (qty)</label>
+            <input type="number" id="melon" min="0" value="0">
+
+            <button type="submit">Submit Order</button>
+            <button type="button" onclick="window.location.href='loginup.html'">Back to Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('groceryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const tel = document.getElementById('number').value.trim();
+            const date = document.getElementById('date').value.trim();
+            const apples = document.getElementById('apples').value.trim();
+            const bananas = document.getElementById('bananas').value.trim();
+            const bread = document.getElementById('bread').value.trim();
+            const grapes = document.getElementById('grapes').value.trim();
+            const oranges = document.getElementById('oranges').value.trim();
+            const melon = document.getElementById('melon').value.trim();
+
+            if (!name || !tel || !date) {
+                alert("Please fill out all required fields.");
+                return;
+            }
+
+            alert(`Thank you, ${name}! Your order has been submitted for pickup on ${date}.\n\nItems:\nApples: ${apples}\nBananas: ${bananas}\nBread: ${bread}\nGrapes: ${grapes}\nOranges: ${oranges}\nMelon: ${melon}`);
+
+            document.getElementById('groceryForm').reset();
+        });
+    </script>
+</body>
+</html>
